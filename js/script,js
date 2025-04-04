@@ -1,0 +1,43 @@
+$(document).ready(function() {
+    let list = $('#list');
+    let inputs = $('input');
+
+    inputs.addClass('my-class');
+
+    $('.main-button').on('click', function() {
+        let value = $('#input1').val();
+        if (value.trim() !== '') {
+            let li = $('<li></li>').text(value);
+            li.on('click', function() {
+                $(this).toggleClass('strike');
+            });
+            list.append(li);
+            $('#input1').val('');
+        }
+    });
+
+    $('.secondary-button-1').on('click', function() {
+        let value = $('#input2').val();
+        if (value.trim() !== '') {
+            let li = $('<li></li>').text(value);
+            li.on('click', function() {
+                $(this).toggleClass('strike');
+            });
+            list.append(li);
+            $('#input2').val('');
+        }
+    });
+
+    $('.secondary-button-2').on('click', function() {
+        let value = $('#input3').val();
+        if (value.trim() !== '') {
+            let li = $('<li></li>').text(value);
+            li.on('click', function() {
+                $(this).toggleClass('strike');
+            });
+            list.append(li);
+            $('#input3').val('');
+        }
+    });
+});
+

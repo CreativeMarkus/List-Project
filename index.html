@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>List Project</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    .strike {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='container'>
+    <input id="input1" placeholder="Enter something...">
+    <input id="input2" placeholder="Another input...">
+    <input id="input3" placeholder="Third input (additional)">
+  </div>
+  <button class='main-button'>Add from Input 1</button>
+  <button class='secondary-button-1'>Add from Input 2</button>
+  <button class='secondary-button-2'>Add from Input 3</button>
+  <ol id="list"></ol>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script>
+    $(document).ready(function () {
+      let list = $('#list');
+      let inputs = $('input');
+
+      inputs.addClass('my-class');
+
+      // Main button: add input1 value to the list
+      $('.main-button').on('click', function () {
+        let value = $('#input1').val();
+        if (value.trim() !== '') {
+          let li = $('<li></li>').text(value);
+          li.on('click', function () {
+            $(this).toggleClass('strike');
+          });
+          list.append(li);
+          $('#input1').val('');
+        }
+      });
+
+      // Secondary button 1: add input2 value to the list
+      $('.secondary-button-1').on('click', function () {
+        let value = $('#input2').val();
+        if (value.trim() !== '') {
+          let li = $('<li></li>').text(value);
+          li.on('click', function () {
+            $(this).toggleClass('strike');
+          });
+          list.append(li);
+          $('#input2').val('');
+        }
+      });
+
+      // Secondary button 2: add input3 value to the list
+      $('.secondary-button-2').on('click', function () {
+        let value = $('#input3').val();
+        if (value.trim() !== '') {
+          let li = $('<li></li>').text(value);
+          li.on('click', function () {
+            $(this).toggleClass('strike');
+          });
+          list.append(li);
+          $('#input3').val('');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
